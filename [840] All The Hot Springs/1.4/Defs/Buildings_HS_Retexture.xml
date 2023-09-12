@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+		<!-- RESEARCH PROJECT DEF -->
+
+  <ResearchProjectDef>
+    <defName>HSretextureEX</defName>
+    <label>Extra Hot Spring Style</label>
+    <description>Allows players to build extra styles of hot spring.</description>
+    <baseCost>5000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>TreeSowing</li>
+      <li>Stonecutting</li>
+      <li>GeothermalPower</li>
+    </prerequisites>
+    <researchViewX>9.00</researchViewX>
+    <researchViewY>2.60</researchViewY>
+  </ResearchProjectDef>
+
+		<!-- HOT SPRING BASE DEF -->
+
+  <ThingDef Name="EXhotspring" ParentName="BuildingBase" Abstract="True">
+    <label>hot spring</label>
+    <description>A natural hot spring whose steaming waters act as a meditative joy source, help cleanse the body of illnesses, and assist in the healing of wounds. Built on top of a naturally occuring steam geyser.\n\nA large amount of clever excavation and painstakingly assembled stoneworks are required to allow the boiling hot waters deep underground to come to the surface as pure bathing water. Construction of this building requires an exceptionally high amount of labor. Average constructors will need several workdays in optimal conditions to complete this building. \n\nThis building can be manually used. Sick and/or injured pawns that are capable of moving on their own should be directed to use the spring once a day. Pawns incapable of moving cannot safely use the spring's waters without undue risk of drowning, and are thus forbidden.</description>
+    <thingClass>StandaloneHotSpring.StandaloneHotSpringBath</thingClass> <!-- Do I need to add this to the other defs, or is it inherited? And is everything here inherited unless otherwise specified? -->
+    <rotatable>false</rotatable>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+      <drawSize>(8,8)</drawSize>
+      <shadowData>
+        <volume>(0.0, 0.0, 0.0)</volume>
+      </shadowData>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+    <pathCost>8</pathCost>
+	<tickerType>Normal</tickerType>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <blockLight>false</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <WorkToBuild>40000</WorkToBuild>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <Flammability>0</Flammability>
+	  <Beauty>300</Beauty>
+	  <JoyGainFactor>1.6</JoyGainFactor>
+	  <BedRestEffectiveness>1.24</BedRestEffectiveness>
+	  <Comfort>1.1</Comfort>
+    </statBases>
+	<building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+		<bed_healPerDay>11</bed_healPerDay>
+		<ai_chillDestination>true</ai_chillDestination>
+		<joyKind>Meditative</joyKind>
+    </building>
+    <size>(8,4)</size>
+    <designationCategory>Joy</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+	  <costStuffCount>1000</costStuffCount> <!-- These are the ORIGINAL costs. -->
+	<placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+    </placeWorkers>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <researchPrerequisites>
+      <li>HSretextureEX</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="EXhotspring">
+    <defName>StandaloneHotSpringEXJ</defName>
+    <graphicData>
+      <texPath>Things/Building/EXhotspringJ</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="EXhotspring">
+    <defName>StandaloneHotSpringEXE</defName>
+    <graphicData>
+      <texPath>Things/Building/EXhotspringE</texPath>
+    </graphicData>
+  </ThingDef>
+  
+		<!-- NEW DEF -->
+  
+  <ThingDef ParentName="EXhotspring">
+    <defName>840_ReactorHotSpring</defName> <!-- AOBA's Reactor Hot Spring -->
+	<label>Reactor Hot Spring</label>
+	<description>A natural hot spring whose steaming waters act as a meditative joy source, help cleanse the body of illnesses, and assist in the healing of wounds. Built on top of a naturally occuring steam geyser. \n\nThis particular variant is constructed using repurposed salvage from old nuclear reactors and their cooling towers, ironically redefining the meaning of the words "Hot-Tub" in several ways. \n\nThis building can be manually used. Sick and/or injured pawns that are capable of moving on their own should be directed to use the spring once a day. Pawns incapable of moving cannot safely use the spring's waters without undue risk of drowning, and are thus forbidden.</description>
+	<graphicData>
+	<texPath>Things/Building/NuclearReactor</texPath>
+	<graphicClass>Graphic_Single</graphicClass>
+	<shaderType>CutoutComplex</shaderType>
+	<drawSize>(8,4)</drawSize>
+	<shadowData>
+		<volume>(0.0, 0.0, 0.0)</volume>
+	</shadowData>
+	<damageData>
+		<cornerTL>Damage/Corner</cornerTL>
+		<cornerTR>Damage/Corner</cornerTR>
+		<cornerBL>Damage/Corner</cornerBL>
+		<cornerBR>Damage/Corner</cornerBR>
+	</damageData>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+    <pathCost>8</pathCost>
+	<tickerType>Normal</tickerType>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <blockLight>false</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <WorkToBuild>40000</WorkToBuild>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <Flammability>0</Flammability>
+	  <Beauty>300</Beauty>
+	  <JoyGainFactor>1.6</JoyGainFactor>
+	  <BedRestEffectiveness>1.24</BedRestEffectiveness>
+	  <Comfort>1.1</Comfort>
+    </statBases>
+	<building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+		<bed_healPerDay>11</bed_healPerDay>
+		<ai_chillDestination>true</ai_chillDestination>
+		<joyKind>Meditative</joyKind>
+    </building>
+    <size>(8,4)</size>
+    <designationCategory>Joy</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+	  <costStuffCount>300</costStuffCount>
+	<costList>
+	  <ComponentIndustrial>3</ComponentIndustrial> <!-- Is my cost correct? -->
+	 </costList>
+	<placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+    </placeWorkers>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <researchPrerequisites>
+      <li>HSretextureEX</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+		<!-- NEW DEF -->
+
+  <ThingDef ParentName="EXhotspring">
+    <defName>840_3HST_HotSpring</defName> <!-- Bill Doors' Reactor Hot Spring -->
+	<label>3HST-LBM-21X prefabricated hydro-entertainment module</label>
+	<description>A natural hot spring whose steaming waters act as a meditative joy source, help cleanse the body of illnesses, and assist in the healing of wounds. Built on top of a naturally occuring steam geyser. \n\nThis state-of-the-art variant features a built in bar, automated thermo-regulation systems, on-demand rainfall showers, self-reclining lounge chairs, and far too many other features to list in an even remotely truncated fashion. The ultimate in luxury relaxation. \n\nThis building can be manually used. Sick and/or injured pawns that are capable of moving on their own should be directed to use the spring once a day. Pawns incapable of moving cannot safely use the spring's waters without undue risk of drowning, and are thus forbidden.</description>
+	<graphicData>
+	<texPath>Things/Building/NuclearReactor</texPath>
+	<graphicClass>Graphic_Single</graphicClass>
+	<shaderType>CutoutComplex</shaderType>
+	<drawSize>(8,8)</drawSize>
+	<shadowData>
+		<volume>(8, 0.2, 4)</volume>
+	</shadowData>
+	<damageData>
+		<cornerTL>Damage/Corner</cornerTL>
+		<cornerTR>Damage/Corner</cornerTR>
+		<cornerBL>Damage/Corner</cornerBL>
+		<cornerBR>Damage/Corner</cornerBR>
+	</damageData>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+    <pathCost>8</pathCost>
+	<tickerType>Normal</tickerType>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <blockLight>false</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <WorkToBuild>40000</WorkToBuild>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <Flammability>0</Flammability>
+	  <Beauty>300</Beauty>
+	  <JoyGainFactor>1.6</JoyGainFactor>
+	  <BedRestEffectiveness>1.24</BedRestEffectiveness>
+	  <Comfort>1.1</Comfort>
+    </statBases>
+	<building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+		<bed_healPerDay>11</bed_healPerDay>
+		<ai_chillDestination>true</ai_chillDestination>
+		<joyKind>Meditative</joyKind>
+    </building>
+    <size>(8,4)</size>
+    <designationCategory>Joy</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<costList>
+		<Steel>175</Steel>
+		<WoodLog>75</WoodLog>
+		<ComponentIndustrial>3</ComponentIndustrial> <!-- Is my cost correct? -->
+	</costList>
+	<placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+    </placeWorkers>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <researchPrerequisites>
+      <li>HSretextureEX</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+		<!-- NEW DEF -->
+  
+  <ThingDef ParentName="EXhotspring">
+    <defName>840_MorrowindHotSpring</defName> <!-- Morrowind Hot Spring -->
+	<label>Morrowind Hot Spring</label>
+	<description>A natural hot spring whose steaming waters act as a meditative joy source, help cleanse the body of illnesses, and assist in the healing of wounds. Built on top of a naturally occuring steam geyser. \n\nThis particular variant features a variety of spectacular rock formations, and an assorted variety of edible and mildly-hallucinogenic fungi native to Morrowind. \n\nThis building can be manually used. Sick and/or injured pawns that are capable of moving on their own should be directed to use the spring once a day. Pawns incapable of moving cannot safely use the spring's waters without undue risk of drowning, and are thus forbidden.</description>
+	<graphicData>
+	  <texPath>Things/Building/Morrowind_Hot_Springs_Retexture</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(9,9)</drawSize>
+	  <shadowData>
+		<volume>(0.0, 0.0, 0.0)</volume>
+	  </shadowData>
+	  <damageData>
+		<cornerTL>Damage/Corner</cornerTL>
+		<cornerTR>Damage/Corner</cornerTR>
+		<cornerBL>Damage/Corner</cornerBL>
+		<cornerBR>Damage/Corner</cornerBR>
+	  </damageData>
+	</graphicData>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+    <pathCost>8</pathCost>
+	<tickerType>Normal</tickerType>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <blockLight>false</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <WorkToBuild>40000</WorkToBuild>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <Flammability>0</Flammability>
+	  <Beauty>300</Beauty>
+	  <JoyGainFactor>1.6</JoyGainFactor>
+	  <BedRestEffectiveness>1.24</BedRestEffectiveness>
+	  <Comfort>1.1</Comfort>
+    </statBases>
+	<building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+		<bed_healPerDay>11</bed_healPerDay>
+		<ai_chillDestination>true</ai_chillDestination>
+		<joyKind>Meditative</joyKind>
+    </building>
+    <size>(9,9)</size> <!-- I'm not sure if this needs to be reverted to 8x8 as the 9x9 change was commented out in the original patch. -->
+    <designationCategory>Joy</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+	  <costStuffCount>1000</costStuffCount> <!-- Do I even need this because of the parent def? -->
+	<placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+    </placeWorkers>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <researchPrerequisites>
+      <li>HSretextureEX</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+		<!-- NEW DEF -->
+		
+  <ThingDef ParentName="EXhotspring"> <!-- Everything else *should* inherit from the parent? There was no patch so it *should* just be a carbon copy aside from the description and label. -->
+    <defName>840_OblivionHotSpring</defName> <!-- Oblivion Hot Spring -->
+	<label>Oblivion Hot Spring</label>
+	<description>A natural hot spring whose steaming waters act as a meditative joy source, help cleanse the body of illnesses, and assist in the healing of wounds. Built on top of a naturally occuring steam geyser. \n\nThis particular variant features an ominous, swirling portal to the Planes of Oblivion. Thankfully, these gateways remain dormant, and are completely impassable from either side. For now...  \n\nThis building can be manually used. Sick and/or injured pawns that are capable of moving on their own should be directed to use the spring once a day. Pawns incapable of moving cannot safely use the spring's waters without undue risk of drowning, and are thus forbidden.</description>
+    <graphicData>
+      <texPath>Things/Building/Oblivion_Hot_Springs_Retexture</texPath> <!-- Not sure if this needs to be 9x9 draw size/actual size like the other textures due to lack of a patch to go off of. -->s
+    </graphicData>
+  </ThingDef>
+
+		<!-- NEW DEF -->
+ 
+  <ThingDef ParentName="EXhotspring">
+    <defName>840_SkyrimHotSpring</defName> <!-- Skyrim Hot Spring -->
+	<label>Skyrim Hot Spring</label>
+	<description>A natural hot spring whose steaming waters act as a meditative joy source, help cleanse the body of illnesses, and assist in the healing of wounds. Built on top of a naturally occuring steam geyser. \n\n \n\nThis building can be manually used. Sick and/or injured pawns that are capable of moving on their own should be directed to use the spring once a day. Pawns incapable of moving cannot safely use the spring's waters without undue risk of drowning, and are thus forbidden.</description>
+	<graphicData>
+	  <texPath>Things/Building/Skyrim_Hot_Springs_Retexture</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(9,9)</drawSize>
+	  <shadowData>
+		<volume>(0.0, 0.0, 0.0)</volume>
+	  </shadowData>
+	  <damageData>
+		<cornerTL>Damage/Corner</cornerTL>
+		<cornerTR>Damage/Corner</cornerTR>
+		<cornerBL>Damage/Corner</cornerBL>
+		<cornerBR>Damage/Corner</cornerBR>
+	  </damageData>
+	</graphicData>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+    <pathCost>8</pathCost>
+	<tickerType>Normal</tickerType>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <blockLight>false</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <WorkToBuild>40000</WorkToBuild>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <Flammability>0</Flammability>
+	  <Beauty>300</Beauty>
+	  <JoyGainFactor>1.6</JoyGainFactor>
+	  <BedRestEffectiveness>1.24</BedRestEffectiveness>
+	  <Comfort>1.1</Comfort>
+    </statBases>
+	<building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+		<bed_healPerDay>11</bed_healPerDay>
+		<ai_chillDestination>true</ai_chillDestination>
+		<joyKind>Meditative</joyKind>
+    </building>
+    <size>(9,9)</size> <!-- I'm not sure if this needs to be reverted to 8x8 as the 9x9 change was commented out in the original patch. -->
+    <designationCategory>Joy</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+	  <costStuffCount>400</costStuffCount>
+	<costList>
+	  <WoodLog>100</WoodLog> <!-- Is my cost correct? -->
+	</costList>
+	<placeWorkers>
+      <li>PlaceWorker_OnSteamGeyser</li>
+    </placeWorkers>
+    <defaultPlacingRot>North</defaultPlacingRot>
+    <researchPrerequisites>
+      <li>HSretextureEX</li>
+    </researchPrerequisites>
+  </ThingDef>		
+		
+		<!-- JOY GIVER DEF -->
+
+  <JoyGiverDef>
+    <defName>StandaloneHotSpringEX</defName>
+      <giverClass>StandaloneHotSpring.JoyGiver_BathStandaloneHotSpring</giverClass>
+      <baseChance>10</baseChance>
+       <thingDefs>
+          <li>StandaloneHotSpringEXJ</li>
+          <li>StandaloneHotSpringEXE</li>
+		  <li>840_ReactorHotSpring</li>	  <!-- NEW ADD -->
+		  <li>840_3HST_HotSpring</li>     <!-- NEW ADD -->
+		  <li>840_MorrowindHotSpring</li> <!-- NEW ADD -->
+		  <li>840_OblivionHotSpring</li>  <!-- NEW ADD -->
+		  <li>840_SkyrimHotSpring</li>    <!-- NEW ADD -->
+       </thingDefs>
+       <jobDef>BathStandaloneHotSpring</jobDef>
+       <joyKind>Meditative</joyKind>
+  </JoyGiverDef>
+
+</Defs>

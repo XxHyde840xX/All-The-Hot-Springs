@@ -1,0 +1,15 @@
+2023/09/11
+----------
+
+- Added new preview image.
+- "Rubber Ducky" Hot Spring replaced with Hei's Hot Spring textures.
+- Added Aoba's Reactor Hot Spring defs and textures.
+- Added Bill Doors' Hot Spring defs and textures.
+- Added Morrowind Hot Spring defs and textures.
+- Added Oblivion Hot Spring defs and textures.
+- Added Skyrim Hot Spring defs and textures.
+
+NOTES:
+
+- Check if defs are correct. You may need to either delete or tweak things because of the parent def.
+- Finish Skyrim Hot Spring description.

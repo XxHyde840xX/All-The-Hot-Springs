@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+	<name>Standalone Hot Spring Retexture</name>
+	<author>Xeva</author>
+    <packageId>840.Xeva.HSRetexture</packageId>
+    <supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>balistafreak.StandaloneHotSpring</packageId>
+			<displayName>Standalone Hot Spring</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2205980094</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>balistafreak.StandaloneHotSpring</li>
+	</loadAfter>
+	<description>A Retexture for Standalone Hot Spring. Main hotspring retextures with Hei's Version. Also adds in the following;
+	
+- </description>
+</ModMetaData>
