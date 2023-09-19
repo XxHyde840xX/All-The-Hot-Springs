@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <ModMetaData>
-	<name>Standalone Hot Spring Retexture</name>
-	<author>Xeva</author>
-    <packageId>840.Xeva.HSRetexture</packageId>
+	<name>All The Hot Springs!</name>
+	<author>Xeva / XxHyde840xX</author>
+    <packageId>840.Xeva.HSRetexture.PLUS</packageId>
     <supportedVersions>
 		<li>1.4</li>
 	</supportedVersions>
@@ -17,7 +17,15 @@
 	<loadAfter>
 		<li>balistafreak.StandaloneHotSpring</li>
 	</loadAfter>
-	<description>A Retexture for Standalone Hot Spring. Main hotspring retextures with Hei's Version. Also adds in the following;
+	<description>A Retexture for Standalone Hot Spring. Main hotspring retextured with Hei's version. 
+	
+Also adds in the following;
+	
+- Aoba's Reactor Hot Spring.
+- Bill Doors' Hot Spring.
+- Morrowind Hot Spring.
+- Oblivion Hot Spring.
+- Skyrim Hot Spring.
 	
 - </description>
 </ModMetaData>
